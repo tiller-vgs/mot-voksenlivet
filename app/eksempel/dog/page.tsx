@@ -1,4 +1,4 @@
-import fetchDog from "@/actions/dog";
+import fetchDog from "@/actions/test";
 import { DogFact } from "@/types/DogFacts";
 
 async function Dog() {
