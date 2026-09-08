@@ -20,3 +20,11 @@ model Stand {
   content   String
   videoUrl  String?
 }
+
+model Company {
+  id        String   @id @default(cuid())
+  name      String
+  imgUrl   String?
+  description String
+  videoUrl  String?
+}

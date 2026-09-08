@@ -1,6 +1,6 @@
 minimumReleaseAge: 2880 # 48 hours
 
 allowBuilds:
-  "@prisma/engines": true
+  "@prisma/engines@7.10.0": true
   prisma: true
   unrs-resolver: true
