@@ -1,6 +1,6 @@
 {
-  "home": "/",
-  "about": "/about",
-  "contact": "/contact",
-  "login": "/login"
+  "Hjem": "/",
+  "Bedrifter": "/bedrifter",
+  "Tilgjengelighet": "/accessibility",
+  "Ressurser": "/resources"
 }
