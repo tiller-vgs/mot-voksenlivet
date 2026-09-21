@@ -28,3 +28,10 @@ model Company {
   description String
   videoUrl  String?
 }
+
+model Activity {
+  id    String @id @default(cuid())
+  name      String
+  URL   String?
+  description String
+}
