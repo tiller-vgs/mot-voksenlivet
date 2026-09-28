@@ -66,6 +66,11 @@ function Footer() {
             Tilgjengelighetserklæring
           </Button>
         </Link>
+        <Link href="/adminLogin">
+          <Button className="text-light-text" variant="link">
+            Admin Logg inn
+          </Button>
+        </Link>
       </div>
     </footer>
   );
