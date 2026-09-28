@@ -32,6 +32,7 @@ model Company {
 model Activity {
   id    String @id @default(cuid())
   name      String
-  URL   String?
+  imgUrl   String
   description String
+  URL         String
 }

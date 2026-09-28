@@ -1,5 +1,5 @@
 import { getAllActivities } from "@/actions/freetimeActivity";
-import CompanyInfoBox from "@/components/CompanyInfoBox";
+import ActivityInfoBox from "@/components/ActivityInfoBox";
 import MainContainer from "@/components/MainContainer";
 
 async function FreeTimePage() {
@@ -10,11 +10,13 @@ async function FreeTimePage() {
         Tilbudet fritidsaktivitetene
       </h1>
       {activities.map((activity) => (
-        <CompanyInfoBox
+        <ActivityInfoBox
           key={activity.id}
           bilde={activity.imgUrl || ""}
-          title={activity.name}
+          navn={activity.name}
           description={activity.description}
+          imgUrl={activity.imgUrl}
+          URL={activity.URL}
         />
       ))}
     </MainContainer>
