@@ -7,7 +7,7 @@ async function FreeTimePage() {
   return (
     <MainContainer>
       <h1 className="flex justify-center text-6xl font-bold mt-10">
-        Tilbudet fritidsaktivitetene
+        Fritidsaktiviteter
       </h1>
       {activities.map((activity) => (
         <ActivityInfoBox
