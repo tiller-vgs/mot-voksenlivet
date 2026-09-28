@@ -1,19 +1,42 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function LoginPage() {
-  const [brukernavn, setBrukernavn] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("Brukernavn:", brukernavn);
-    console.log("Passord:", password);
-
-    // Her kan du senere koble til prisma-database
+    await authClient.signIn.email(
+      {
+        email: email,
+        password: password,
+        // name: "Admin",
+      },
+      {
+        onError: (error) => {
+          toast.add({
+            title: error.error.error,
+            description: "Login failed: " + error.error.message,
+          });
+        },
+        onSuccess: (data) => {
+          toast.add({
+            title: "Success",
+            description: "Login successful!",
+          });
+          router.replace("/admin");
+        },
+      },
+    );
   };
 
   return (
@@ -27,19 +50,16 @@ export default function LoginPage() {
 
         <form onSubmit={handleLogin} className="pt-8">
           <div className="mb-5">
-            <label
-              htmlFor="brukernavn"
-              className="block text-lg font-medium mb-2"
-            >
-              Brukernavn
+            <label htmlFor="email" className="block text-lg font-medium mb-2">
+              E-post
             </label>
 
             <input
-              id="brukernavn"
+              id="email"
               type="text"
-              value={brukernavn}
-              onChange={(e) => setBrukernavn(e.target.value)}
-              placeholder="Brukernavn"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-post"
               required
               className="
                 w-full
